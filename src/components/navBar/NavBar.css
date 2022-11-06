@@ -1,0 +1,145 @@
+.navigation {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    padding: 0.5rem 0rem;
+    background: #F2F1F2;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    z-index: 5;
+  }
+
+
+.navigation__logo {
+    margin-left: 1rem;
+  }
+  
+.navigation-menu {
+margin-left: auto;
+}
+
+
+.navigation-menu ul {
+display: flex;
+padding: 0;
+}
+.navigation-menu li {
+list-style-type: none;
+margin: 0 1rem;
+}
+
+.navigation-menu li a{
+    text-decoration: none;
+}
+
+
+.navigation__tags{
+display: block;
+width: 100%;
+color: var(--font-dark-color-2);
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+font-feature-settings: 'liga' off;
+color: #2B2B2B;
+padding: 16px 1px;
+}
+
+.navigation__tags:hover{
+    border-bottom: 2px solid goldenrod;
+}
+
+
+.hamburger {
+/* removes default border on button element */
+    border: 0;
+    height: 40px;
+    width: 40px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+/* positions the icon to the right and center aligns it vertically */
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    display: none;
+}
+
+
+.navigation__tags.border{
+    background: #782883;
+    border-radius: 8px;
+    color:var(--font-light-color);
+    padding: 16px 24px;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 640px) {
+    .hamburger {
+      display: block;
+    }
+
+
+    .navigation-menu ul {
+        /* navigation menu is positioned to start 60px from the top of the document (which is directly below the navbar) */
+        position: absolute;
+        top: 100px;
+        left: 0;
+        /* stacks the li tags vertically  */
+        flex-direction: column;
+        /* makes menu span full height and width */
+        width: 100%;
+        height: calc(100vh - 100px);
+        background-color: var(--font-light-color);
+        border-top: 1px solid  var(--font-dark-color-2);
+        display:none;
+      }
+
+      .navigation-menu.expanded ul {
+        display:block;
+        display: flex;
+        flex-direction: column;
+
+      }
+      .navigation-menu li {
+        text-align: left;
+        padding: 0.5rem 2rem;
+        margin: 0;
+        border-bottom: 0.1px solid var(--secondary-orange-color);
+  
+      }
+      .navigation__tags {
+        color: var(--font-dark-color-2);
+        width: 100%;
+        padding: 1.5rem 0;
+      }
+
+      .navigation__tags:hover{
+        border:none
+    }
+    
+      .navigation-menu li:hover {
+        background-color: #eee;
+      }
+
+      .navigation-menu li:last-child {
+        border-bottom: none;
+        margin-top: auto;
+        margin-bottom: 4rem;
+        margin-left: 0;
+      }
+
+}
