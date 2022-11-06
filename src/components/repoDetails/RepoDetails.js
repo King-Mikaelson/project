@@ -20,14 +20,29 @@ function RepoDetails() {
         );
       }, [reponame]);
 
+
+let array = []
+
+    for(const key in repo){
+      array.push(`${key} : ${repo[key]}`)
+    }
+
+  let items = array.map((item) => <li style={{fontSize:"1.5rem", marginTop:"2rem"}}>{JSON.stringify(item)}</li>);
+
   return (
-    <div>
+    <>
+
+<div>
       {loading ? <p>loading...</p> :
       <div>
         <h1 style={{textAlign:"center"}}>{repo.name}</h1>
-      <p>{JSON.stringify(repo)}</p>
+  {/* <p>{JSON.stringify(repo)}</p> */}
+      <ul>{items}</ul>
       </div>}
+
     </div>
+    </>
+    
   )
 }
 
