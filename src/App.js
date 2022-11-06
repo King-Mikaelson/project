@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import NavBar from './components/navBar/NavBar';
+import Users from './components/users/Users';
+import NotFound from './components/notFound/NotFound';
+import RepoDetails from './components/repoDetails/RepoDetails';
+import Home from './components/home/Home';
+import {ErrorBoundary} from 'react-error-boundary';
+import FallBack from './components/fallback/FallBack';
+import ErrorPage from './components/errorBoundary/ErrorPage';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ErrorBoundary FallbackComponent={FallBack}>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/repo" element={<Users/>}>
+        <Route path="/repo/:reponame" element={<RepoDetails/>}/>
+        </Route>
+        <Route path="/error" element={<ErrorPage/>}/>
+        <Route path='*' element={<NotFound/>}></Route>
+      </Routes>
+      </ErrorBoundary>
     </div>
   );
 }
