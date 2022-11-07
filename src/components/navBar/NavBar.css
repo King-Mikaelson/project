@@ -103,9 +103,10 @@ padding: 16px 1px;
         /* makes menu span full height and width */
         width: 100%;
         height: calc(100vh - 100px);
-        background-color: var(--font-light-color);
-        border-top: 1px solid  var(--font-dark-color-2);
+        background-color: whitesmoke;
+        border-top: 1px solid  darkslategray;
         display:none;
+        z-index: 100;
       }
 
       .navigation-menu.expanded ul {
