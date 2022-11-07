@@ -9,12 +9,12 @@ function Pagination({pagePerRepo, totalRepo, currentRepo, setCurrentRepo}) {
     }
   return (
     <div className='page__container'>
-        <button disabled={currentRepo === 1} onClick={() =>setCurrentRepo(prevValue => prevValue - 1)}>Previous</button>
+        <button className='prev' disabled={currentRepo === 1} onClick={() =>setCurrentRepo(prevValue => prevValue - 1)}>Previous</button>
 
         {pages.map((page,index) => (
-        <button className={page === currentRepo ? "active__page": ""} onClick={() => setCurrentRepo(page)} key={index}>{page}</button>
+        <button className={page === currentRepo ? "active__page": "number"} onClick={() => setCurrentRepo(page)} key={index}>{page}</button>
     ))}
-     <button disabled={currentRepo === pages.length} onClick={() => setCurrentRepo(prevValue => prevValue + 1)}>Next</button>
+     <button className='prev' disabled={currentRepo === pages.length} onClick={() => setCurrentRepo(prevValue => prevValue + 1)}>Next</button>
 
     </div>
   )

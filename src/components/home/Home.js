@@ -2,8 +2,8 @@ import React from "react"
 
 function Home() {
   return (
-    <div style={{display:"flex", justifyContent:"center", alignItems:"center", background:"red", height:"100vh"}}>
-        <h1>Welcome To Alucard Website</h1>
+    <div style={{display:"flex", justifyContent:"center", alignItems:"center", background:"black", color:"whitesmoke", height:"100vh"}}>
+        <h1>Welcome To Alucard GitHub Repo</h1>
     </div>
   )
 }

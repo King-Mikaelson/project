@@ -27,7 +27,7 @@ let array = []
       array.push(`${key} : ${repo[key]}`)
     }
 
-  let items = array.map((item) => <li style={{fontSize:"1.5rem", marginTop:"2rem"}}>{JSON.stringify(item)}</li>);
+  let items = array.map((item) => <li style={{fontSize:"1.5rem", marginTop:"2rem"}}>{item}</li>);
 
   return (
     <>
