@@ -7,8 +7,8 @@ function ErrorPage() {
   }
   return (
     <div style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", height:"100vh"}}>
-      Testing The Error Page
-      <button onClick={() => setError(true)}>Click To Throw Error</button>
+      <h1>Testing The Error Page</h1>
+      <button style={{padding:"15px", marginTop:'2rem', border:"none"}} onClick={() => setError(true)}>Click To Throw Error</button>
     </div>
   )
 }

@@ -36,7 +36,7 @@ function NavBar() {
 
           <li onClick={() => setIsNavopen(false)}>
             <Link className="navigation__tags" to="/aboutus">
-              About Us
+              404 Error Page
             </Link>
           </li>
         
@@ -47,7 +47,7 @@ function NavBar() {
             </Link>
           </li>
           <li>
-            <Link className="navigation__tags border" to="/error" onClick={() => setIsNavopen(false)}>
+            <Link style={{color:"whitesmoke"}} className="navigation__tags border" to="/error" onClick={() => setIsNavopen(false)}>
               Error Page
             </Link>
           </li>

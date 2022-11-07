@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../pagination/Pagination";
 import { Outlet, useNavigate } from "react-router-dom";
 import {Helmet} from "react-helmet";
+import "./Users.css";
+import { AiFillGithub } from "react-icons/ai";
+
 
 const Users = () => {
   const [repo, setRepo] = useState([]);
@@ -41,15 +44,24 @@ console.log(repo)
       <div>
         <h1 style={{textAlign:"center"}}>My Github Repository</h1>
         {loading ? <p>loading...</p> :  currentUser.map((repo) => (
-        <div onClick={() => {navigate(`/repo/${repo.name}`);}} style={{border: "1px solid goldenrod", margin:"0 auto", width:"50%", display:"flex", justifyContent:"center", gap:"0.5rem",flexDirection:"column", alignItems:"center", marginTop:"1rem", padding:'0.5rem', cursor:"pointer"}}>
-        <p>Repo Name : {repo.name}</p>
-        <p>Click To Read More</p>
+        <div className="user__container" onClick={() => {navigate(`/repo/${repo.name}`);}} style={{margin:"0 auto", width:"50%", display:"flex", justifyContent:"center", gap:"0.5rem",flexDirection:"column", alignItems:"center", marginTop:"1rem", padding:'0.5rem', cursor:"pointer"}}>
+        <div class="card-wrap">
+  <div class="card-header one">
+    <AiFillGithub size={60}/>
+  </div>
+  <div class="card-content">
+    <h1 class="card-title">{repo.name}</h1>
+    <p class="card-text">Language: {repo.language}</p>
+    <button class="card-btn one">Click To Read More</button>
+ </div>
+</div>
         </div>
         ))}
       </div>
       <Pagination pagePerRepo={pagePerRepo} totalRepo={repo.length} currentRepo={currentRepo} setCurrentRepo={setCurrentRepo}/>
       <Outlet/>
-    </div>
+      
+    </div>    
   </>
   );
 };
