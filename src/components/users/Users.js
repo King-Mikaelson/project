@@ -22,7 +22,6 @@ const Users = () => {
         response.json().then((data) => {
           setLoading(false);
           setRepo(data);
-          console.log(repo)
         })
     );
   }, []);
@@ -31,16 +30,17 @@ const Users = () => {
   const firstRepo= lastRepo- pagePerRepo;
   const currentUser = repo.slice(firstRepo, lastRepo);
 
-console.log(repo)
 
 
   return (
     <>
     <Helmet>
-        <title>Github Repository</title>
+        <title> A Github Repository List</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
         <meta name="description" content="A list of King-Mikaelson github repository" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </Helmet>
-    <div style={{display:"flex", flexDirection:"column",height:"100vh", marginTop:"7rem"}}>
+    <main style={{display:"flex", flexDirection:"column",height:"100vh", marginTop:"7rem"}}>
       <div>
         <h1 style={{textAlign:"center"}}>My Github Repository</h1>
         {loading ? <p>loading...</p> :  currentUser.map((repo) => (
@@ -61,7 +61,7 @@ console.log(repo)
       <Pagination pagePerRepo={pagePerRepo} totalRepo={repo.length} currentRepo={currentRepo} setCurrentRepo={setCurrentRepo}/>
       <Outlet/>
       
-    </div>    
+    </main>    
   </>
   );
 };
