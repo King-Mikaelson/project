@@ -43,16 +43,16 @@ const Users = () => {
     <main style={{display:"flex", flexDirection:"column",height:"100vh", marginTop:"7rem"}}>
       <div>
         <h1 style={{textAlign:"center"}}>My Github Repository</h1>
-        {loading ? <p>loading...</p> :  currentUser.map((repo) => (
-        <div className="user__container" onClick={() => {navigate(`/repo/${repo.name}`);}} style={{margin:"0 auto", width:"50%", display:"flex", justifyContent:"center", gap:"0.5rem",flexDirection:"column", alignItems:"center", marginTop:"1rem", padding:'0.5rem', cursor:"pointer"}}>
-        <div class="card-wrap">
-  <div class="card-header one">
+        {loading ? <p>loading...</p> :  currentUser.map((repo, index) => (
+        <div key={index} className="user__container" onClick={() => {navigate(`/repo/${repo.name}`);}} style={{margin:"0 auto", width:"50%", display:"flex", justifyContent:"center", gap:"0.5rem",flexDirection:"column", alignItems:"center", marginTop:"1rem", padding:'0.5rem', cursor:"pointer"}}>
+        <div className="card-wrap">
+  <div className="card-header one">
     <AiFillGithub size={60}/>
   </div>
-  <div class="card-content">
-    <h1 class="card-title">{repo.name}</h1>
-    <p class="card-text">Language: {repo.language}</p>
-    <button class="card-btn one">Click To Read More</button>
+  <div className="card-content">
+    <h1 className="card-title">{repo.name}</h1>
+    <p className="card-text">Language: {repo.language}</p>
+    <button className="card-btn one">Click To Read More</button>
  </div>
 </div>
         </div>

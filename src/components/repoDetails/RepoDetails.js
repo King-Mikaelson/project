@@ -20,6 +20,11 @@ function RepoDetails() {
         );
       }, [reponame]);
 
+      useEffect(() => {
+        var element = document.getElementById("page");
+        element.scrollIntoView({behavior: "smooth", block: "nearest", inline: "nearest"});
+      }, [reponame]);
+
 
 let array = []
 
@@ -27,7 +32,7 @@ let array = []
       array.push(`${key} : ${repo[key]}`)
     }
 
-  let items = array.map((item) => <li style={{fontSize:"1.5rem", marginTop:"2rem"}}>{item}</li>);
+  let items = array.map((item, index) => <li key={index} style={{fontSize:"1.5rem", marginTop:"2rem"}}>{item}</li>);
 
   return (
     <>
@@ -37,7 +42,7 @@ let array = []
 <meta name="description" content="Information on a github repository" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 </Helmet>
-<main>
+<main id="page">
       {loading ? <p>loading...</p> :
       <div>
         <h1 style={{textAlign:"center"}}>{repo.name}</h1>
